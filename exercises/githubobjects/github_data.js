@@ -4406,3 +4406,28 @@ const githubData = [
       }
     }
   ]
+
+// Your task it to use your knowledge of accessing property values and array indices to output the commit message for the push event with an id of 8030403992.
+
+
+//finding the index of 8030403992
+// for each index in githubData, if githubData[index].id === 8030403992, return index
+function findIndex(idNumber) {
+  for (i = 0; i < githubData.length; i++) {
+    if (githubData[i].id == idNumber) {
+      return i
+    }
+  }
+}
+
+// variables to drill down to the specific commit message i want
+const myIndex = findIndex(8030403992)
+const myObject = githubData[myIndex]
+const myCommits = myObject.payload.commits
+const myCommitMessage = myCommits[0].message
+
+// print the message to the console
+console.log(myCommitMessage)
+
+
+
